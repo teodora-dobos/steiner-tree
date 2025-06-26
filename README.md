@@ -35,5 +35,4 @@ Run on a graph file:
    python main.py < graphs/graph1.stp
    ```
 This will create a ``results.txt`` file with the results computed with the implemented algorithms and with the `networkx` built-in Steiner tree approximation algorithm.
-You can replace ``graph1.stp`` with another graph from ``graphs``.
-
+You can replace ``graph1.stp`` with another graph from the ``graphs`` folder. The input format follows the [PACE 2018 Steiner Tree Challenge](https://pacechallenge.org/2018/steiner-tree/).
