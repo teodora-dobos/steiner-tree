@@ -1,8 +1,8 @@
 import sys
 import networkx as nx
-from primal_dual import primal_dual
-from repetitive_shortest_path import repetitive_shortest_path
-from mehlhorn_algorithm import mehlhorn_algorithm
+from algorithms.primal_dual import primal_dual
+from algorithms.repetitive_shortest_path import repetitive_shortest_path
+from algorithms.mehlhorn_algorithm import mehlhorn_algorithm
 
 
 def create_graph_from_input():
