@@ -45,21 +45,21 @@ def create_graph_from_input():
 def valid_solution(tree, terminals, f):
     connected = nx.is_connected(tree)
     if not connected:
-        f.write("❌ Graph is not connected\n")
+        f.write("Graph is not connected\n")
     is_tree = nx.is_tree(tree)
     if not is_tree:
-        f.write("❌ Graph is not a tree\n")
+        f.write("Graph is not a tree\n")
     covers_all = all(t in tree.nodes for t in terminals)
     if not covers_all:
-        f.write("❌ Not all terminals are in the tree\n")
+        f.write("Not all terminals are in the tree\n")
     return connected and is_tree and covers_all
 
 
 def run_and_evaluate(name, func, graph, terminals, f):
-    f.write(f"Running {name}...\n")
+    print(f"Running {name}...\n")
     tree, weight = func(graph, terminals)
-    f.write(f"✅ {name} weight: {weight}\n")
-    f.write(f"✅ Solution valid: {valid_solution(tree, terminals, f)}\n\n")
+    f.write(f"{name} weight: {weight}\n")
+    f.write(f"Solution valid: {valid_solution(tree, terminals, f)}\n\n")
     return tree
 
 
@@ -67,11 +67,11 @@ def main():
     graph, terminals = create_graph_from_input()
 
     with open(OUTPUT_FILE, "w") as f:
-        f.write("Running NetworkX approximation...\n")
+        print("Running NetworkX approximation...\n")
         tree_nx = nx.algorithms.approximation.steinertree.steiner_tree(graph, terminals)
         weight_nx = tree_nx.size(weight="weight")
-        f.write(f"✅ NetworkX approximation weight: {weight_nx}\n")
-        f.write(f"✅ Solution valid: {valid_solution(tree_nx, terminals, f)}\n\n")
+        f.write(f"NetworkX approximation weight: {weight_nx}\n")
+        f.write(f"Solution valid: {valid_solution(tree_nx, terminals, f)}\n\n")
 
         run_and_evaluate("Repetitive Shortest Path Heuristic", repetitive_shortest_path, graph, terminals, f)
         run_and_evaluate("Primal-Dual Algorithm", primal_dual, graph, terminals, f)

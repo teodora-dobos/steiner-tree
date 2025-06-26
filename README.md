@@ -7,16 +7,16 @@ This repository provides a collection of heuristics and approximation algorithms
 ## Implemented Algorithms
 
 ### 1. Repetitive Shortest Path Heuristic
-Greedily connects the closest uncovered terminal to the current tree using Dijkstra paths. Fast but suboptimal.
+Greedily connects the closest uncovered terminal to the current tree using Dijkstra paths. 
 
 ### 2. Primal-Dual 2-Approximation
-Based on primal-dual schema. Builds dual variables and merges active sets via tight edges. Includes logic for maintaining primal solutions.
+Based on primal-dual schema. Builds dual variables and merges active sets via tight edges. 
 
 ### 3. Mehlhorn's Approximation Algorithm
-Implements Mehlhorn’s approach using Voronoi regions and minimum spanning trees in transformed graphs. Highly effective for structured instances.
+Implements Mehlhorn’s approach using Voronoi regions and minimum spanning trees in transformed graphs. 
 
 ### 4. Naive Clustering-Based Heuristic
-Clusters nodes based on proximity to terminals and connects randomly chosen representatives. Simple and fast but not always valid.
+Clusters nodes based on proximity to terminals and connects randomly chosen representatives. May return an infesible solution.
 
 ---
 
@@ -29,4 +29,11 @@ Used primarily for preprocessing in the naive heuristic.
 - `kMeans_clustering`, `kMedoids_clustering`: use embeddings from the Laplacian and cluster via sklearn.
 
 
+## How to run
+Run on a graph file:
+```bash
+   python main.py < graphs/graph1.stp
+   ```
+This will create a ``results.txt`` file with the results computed with the implemented algorithms and with the `networkx` built-in Steiner tree approximation algorithm.
+You can replace ``graph1.stp`` with another graph from ``graphs``.
 
