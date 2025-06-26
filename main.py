@@ -3,6 +3,7 @@ import networkx as nx
 from algorithms.primal_dual import primal_dual
 from algorithms.repetitive_shortest_path import repetitive_shortest_path
 from algorithms.mehlhorn_algorithm import mehlhorn_algorithm
+from algorithms.naive_heuristic import naive_heuristic
 
 
 def create_graph_from_input():
@@ -80,7 +81,7 @@ def main():
     run_and_evaluate("Repetitive Shortest Path Heuristic", repetitive_shortest_path, graph, terminals)
     run_and_evaluate("Primal-Dual Algorithm", primal_dual, graph, terminals)
     run_and_evaluate("Mehlhorn Algorithm", mehlhorn_algorithm, graph, terminals)
-
+    run_and_evaluate("Naive Heuristic", naive_heuristic, graph, terminals)
 
 if __name__ == "__main__":
     main()
